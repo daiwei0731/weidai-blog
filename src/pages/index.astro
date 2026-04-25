@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wei Dai</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Wei Dai</h1>
+        <p>Notes on network engineering, AI agents, and the spaces between.</p>
+      </header>
+
+      <section>
+        {sortedPosts.map((post) => (
+          <article>
+            <h2>
+              <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+            </h2>
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            <p>{post.data.description}</p>
+          </article>
+        ))}
+      </section>
+    </main>
+  </body>
+</html>

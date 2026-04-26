@@ -21,6 +21,10 @@ const { Content } = await render(post);
   pubDate={post.data.pubDate}
 >
   <main>
+    <nav class="post-nav-top">
+      <a href="/">← Wei Dai</a>
+    </nav>
+
     <article>
       <header>
         <h1>{post.data.title}</h1>
@@ -35,9 +39,5 @@ const { Content } = await render(post);
 
       <Content />
     </article>
-
-    <nav>
-      <a href="/">← Back to all posts</a>
-    </nav>
   </main>
 </Layout>

@@ -37,4 +37,4 @@ In complex systems like networking, cloud infrastructure, Kubernetes, load balan
 
 ---
 
-*Views and opinions expressed here are my own and do not necessarily reflect those of my employer. This article describes general design principles for AI agents in network operations and does not disclose proprietary information about any specific organization, project, or system.*
+*Views and opinions expressed here are my own and do not necessarily reflect those of my employer.*
